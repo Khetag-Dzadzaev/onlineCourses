@@ -1,0 +1,39 @@
+.currency-switcher {
+	display: flex;
+	letter-spacing: normal;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	align-items: center;
+}
+
+@media (min-width:992px){
+	.currency-switcher {
+		display: flex;
+	}
+}
+
+.currency-switcher__item:not(:last-child) {
+	margin-right: 10px;
+}
+
+.currency-switcher__item.active .currency-switcher__link {
+	color: #D19C97;
+}
+
+.currency-switcher__link {
+	position: relative;
+	display: inline-block;
+	color: #29293a;
+	transition: .25s;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.currency-switcher__link:hover {
+	color: #787d62;
+	font-size: 18px;
+}
+.currency-switcher__link:focus {
+	font-size: 18px;
+}
