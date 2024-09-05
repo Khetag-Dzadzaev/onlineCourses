@@ -1,4 +1,7 @@
-<?php
+<?php//Begin Really Simple SSL key
+define('RSSSL_KEY', 'DXztnMLHtrT7XNGcdsveOFVKP3ywM3JGXLWDA97OnDq30n8ZD8GLBtT9nl0cPk3W');
+//END Really Simple SSL key
+
 
 /**
  * Основные параметры WordPress.
