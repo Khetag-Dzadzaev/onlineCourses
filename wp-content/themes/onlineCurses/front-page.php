@@ -151,7 +151,7 @@
 						<h2 class="section-title__title"><?php echo get_field('main_about_title'); ?></h2>
 					</div><!-- section-title -->
 					<p class="about-one__content__text">
-						<?php echo get_field('main_about_text'); ?>
+						<?php echo get_field('main_about_tFavorite Topics To Learnext'); ?>
 					</p>
 					<?php
 					while (have_rows('main_about_list')) {
@@ -164,7 +164,7 @@
 							</div>
 						</div><!-- /.icon-box -->
 					<?php } ?>
-					<a href="<?php echo get_permalink(pll_get_post(10)); ?>" class="eduact-btn"><span class="eduact-btn__curve"></span>Read more<i
+					<a href="/o-kompanii/" class="eduact-btn"><span class="eduact-btn__curve"></span>Read more<i
 							class="icon-arrow"></i></a><!-- /.btn -->
 				</div><!-- about content end-->
 			</div>
@@ -246,586 +246,34 @@
                 }
             }
             }'>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Analysis</h3><!-- /.category-title -->
-							<p class="category-one__text">8 Courses</p><!-- /.category-content -->
+			<?php $terms = get_terms([
+				'taxonomy' => 'product_cat',
+				'exclude' => array_merge(
+					[15, 24, 209],
+				),
+			]);
+			foreach ($terms as  $value) { ?>
+				<div class="item">
+					<a href="<?php echo get_term_link($value); ?>" class="category-one__item">
+						<div class="category-one__wrapper"
+							style="background-color:#f1f2fd;">
+							<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-1.png" alt="eduact" style="opacity:0;" />
+							</div><!-- /.category-thumb -->
+							<div class="category-one__content">
+								<div class="category-one__icon">
+									<img class="categoriImages" src="<?php echo get_field("foto_kategorii", 'term_' . $value->term_id)["url"]; ?>" alt="">
+								</div><!-- /.category-icon -->
+								<h3 class="category-one__title"><?php echo $value->name; ?></h3><!-- /.category-title -->
+								<p class="category-one__text"><?php echo $value->count; ?> Курса</p><!-- /.category-content -->
+							</div>
 						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Analysis</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Data Science</h3><!-- /.category-title -->
-							<p class="category-one__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Data Science</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Digital Marketing</h3><!-- /.category-title -->
-							<p class="category-one__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Digital Marketing</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Ideas</h3><!-- /.category-title -->
-							<p class="category-one__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Ideas</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Analysis</h3><!-- /.category-title -->
-							<p class="category-one__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Analysis</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Data Science</h3><!-- /.category-title -->
-							<p class="category-one__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Data Science</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Digital Marketing</h3><!-- /.category-title -->
-							<p class="category-one__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Digital Marketing</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Ideas</h3><!-- /.category-title -->
-							<p class="category-one__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Ideas</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Analysis</h3><!-- /.category-title -->
-							<p class="category-one__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Analysis</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Data Science</h3><!-- /.category-title -->
-							<p class="category-one__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Data Science</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Digital Marketing</h3><!-- /.category-title -->
-							<p class="category-one__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Digital Marketing</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Ideas</h3><!-- /.category-title -->
-							<p class="category-one__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Ideas</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Analysis</h3><!-- /.category-title -->
-							<p class="category-one__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Analysis</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Data Science</h3><!-- /.category-title -->
-							<p class="category-one__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Data Science</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Digital Marketing</h3><!-- /.category-title -->
-							<p class="category-one__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Digital Marketing</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Ideas</h3><!-- /.category-title -->
-							<p class="category-one__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Ideas</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Analysis</h3><!-- /.category-title -->
-							<p class="category-one__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-1.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-education"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Analysis</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">8 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Data Science</h3><!-- /.category-title -->
-							<p class="category-one__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-2.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Technology"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Data Science</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">6 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Digital Marketing</h3><!-- /.category-title -->
-							<p class="category-one__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-3.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Digital-marketing"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Digital Marketing</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">5 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
-			<div class="item">
-				<div class="category-one__item">
-					<div class="category-one__wrapper"
-						style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/shapes/category-shape.png);">
-						<div class="category-one__thumb"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-normal-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__content">
-							<div class="category-one__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__title">Business Ideas</h3><!-- /.category-title -->
-							<p class="category-one__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-					<div class="category-one__hover">
-						<div class="category-one__hover__thumb">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/category/category-hover-4.png" alt="eduact" />
-						</div><!-- /.category-thumb -->
-						<div class="category-one__hover__content">
-							<div class="category-one__hover__icon">
-								<span class="icon-Start-up"></span>
-							</div><!-- /.category-icon -->
-							<h3 class="category-one__hover__title"><a href="about.html">Business Ideas</a></h3>
-							<!-- /.category-title -->
-							<p class="category-one__hover__text">9 Courses</p><!-- /.category-content -->
-						</div>
-					</div>
-				</div><!-- /.category-card-one -->
-			</div>
+
+					</a><!-- /.category-card-one -->
+				</div>
+			<?php		}
+			?>
+
+
 		</div>
 	</div>
 </section>
@@ -872,186 +320,51 @@
 			<h2 class="section-title__title">Featured Course On This Month</h2>
 		</div><!-- section-title -->
 		<div class="row">
-			<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
-				<div class="course-one__item">
-					<div class="course-one__thumb">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/course-1-1.png" alt="eduact">
-						<a class="course-one__like" href="javascript:void(0);"><span class="icon-like"></span></a>
-					</div><!-- /.course-thumb -->
-					<div class="course-one__content">
-						<div class="course-one__time">20 Hours</div>
-						<div class="course-one__ratings">
-							<span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span
-								class="icon-star"></span><span class="icon-star"></span>
-							<div class="course-one__ratings__reviews">(25 Reviews)</div>
-						</div>
-						<h3 class="course-one__title">
-							<a href="management-consulting.html">Management Consultants in Competitive Markets</a>
-						</h3>
-						<div class="course-one__bottom">
-							<div class="course-one__author">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/author-1.png" alt="eduact">
-								<h5 class="course-one__author__name">Guy Hawkins</h5>
-								<p class="course-one__author__designation">Project Manager</p>
-							</div>
-							<div class="course-one__meta">
-								<h4 class="course-one__meta__price">$473.00</h4>
-								<p class="course-one__meta__class">15 Lessons</p>
-							</div>
-						</div>
-					</div><!-- /.course-content -->
-				</div><!-- /.course-card-one -->
-			</div>
-			<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="200ms">
-				<div class="course-one__item">
-					<div class="course-one__thumb">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/course-1-2.png" alt="eduact">
-						<a class="course-one__like" href="javascript:void(0);"><span class="icon-like"></span></a>
-					</div><!-- /.course-thumb -->
-					<div class="course-one__content">
-						<div class="course-one__time">40 Hours</div>
-						<div class="course-one__ratings">
-							<span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span
-								class="icon-star"></span><span class="icon-star"></span>
-							<div class="course-one__ratings__reviews">(25 Reviews)</div>
-						</div>
-						<h3 class="course-one__title">
-							<a href="web-development.html">The Ultimate Developer Course For Future Learner</a>
-						</h3>
-						<div class="course-one__bottom">
-							<div class="course-one__author">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/author-2.png" alt="eduact">
-								<h5 class="course-one__author__name">Devon Lane</h5>
-								<p class="course-one__author__designation">ROR Developer</p>
-							</div>
-							<div class="course-one__meta">
-								<h4 class="course-one__meta__price">$943.00</h4>
-								<p class="course-one__meta__class">10 Lessons</p>
-							</div>
-						</div>
-					</div><!-- /.course-content -->
-				</div><!-- /.course-card-one -->
-			</div>
-			<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="300ms">
-				<div class="course-one__item">
-					<div class="course-one__thumb">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/course-1-3.png" alt="eduact">
-						<a class="course-one__like" href="javascript:void(0);"><span class="icon-like"></span></a>
-					</div><!-- /.course-thumb -->
-					<div class="course-one__content">
-						<div class="course-one__time">13 Hours</div>
-						<div class="course-one__ratings">
-							<span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span
-								class="icon-star"></span><span class="icon-star"></span>
-							<div class="course-one__ratings__reviews">(25 Reviews)</div>
-						</div>
-						<h3 class="course-one__title">
-							<a href="frontend-development.html">The Special HTML & CSS Bootcamp Edition</a>
-						</h3>
-						<div class="course-one__bottom">
-							<div class="course-one__author">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/author-3.png" alt="eduact">
-								<h5 class="course-one__author__name">Darrell Steward</h5>
-								<p class="course-one__author__designation">Fronted Developer</p>
-							</div>
-							<div class="course-one__meta">
-								<h4 class="course-one__meta__price">$767.00</h4>
-								<p class="course-one__meta__class">13 Lessons</p>
-							</div>
-						</div>
-					</div><!-- /.course-content -->
-				</div><!-- /.course-card-one -->
-			</div>
-			<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="400ms">
-				<div class="course-one__item">
-					<div class="course-one__thumb">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/course-1-4.png" alt="eduact">
-						<a class="course-one__like" href="javascript:void(0);"><span class="icon-like"></span></a>
-					</div><!-- /.course-thumb -->
-					<div class="course-one__content">
-						<div class="course-one__time">25 Hours</div>
-						<div class="course-one__ratings">
-							<span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span
-								class="icon-star"></span><span class="icon-star"></span>
-							<div class="course-one__ratings__reviews">(25 Reviews)</div>
-						</div>
-						<h3 class="course-one__title">
-							<a href="uiux-design.html">Building Responsive User Interfaces to Implementing</a>
-						</h3>
-						<div class="course-one__bottom">
-							<div class="course-one__author">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/author-4.png" alt="eduact">
-								<h5 class="course-one__author__name">Jane Cooper</h5>
-								<p class="course-one__author__designation">React JS Developer</p>
-							</div>
-							<div class="course-one__meta">
-								<h4 class="course-one__meta__price">$739.65</h4>
-								<p class="course-one__meta__class">15 Lessons</p>
-							</div>
-						</div>
-					</div><!-- /.course-content -->
-				</div><!-- /.course-card-one -->
-			</div>
-			<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="500ms">
-				<div class="course-one__item">
-					<div class="course-one__thumb">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/course-1-5.png" alt="eduact">
-						<a class="course-one__like" href="javascript:void(0);"><span class="icon-like"></span></a>
-					</div><!-- /.course-thumb -->
-					<div class="course-one__content">
-						<div class="course-one__time">12 Hours</div>
-						<div class="course-one__ratings">
-							<span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span
-								class="icon-star"></span><span class="icon-star"></span>
-							<div class="course-one__ratings__reviews">(25 Reviews)</div>
-						</div>
-						<h3 class="course-one__title">
-							<a href="digital-photography.html">Photography Crash Course for Beginners</a>
-						</h3>
-						<div class="course-one__bottom">
-							<div class="course-one__author">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/author-5.png" alt="eduact">
-								<h5 class="course-one__author__name">Wade Warren</h5>
-								<p class="course-one__author__designation">Finance</p>
-							</div>
-							<div class="course-one__meta">
-								<h4 class="course-one__meta__price">$351.02</h4>
-								<p class="course-one__meta__class">13 Lessons</p>
-							</div>
-						</div>
-					</div><!-- /.course-content -->
-				</div><!-- /.course-card-one -->
-			</div>
-			<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="600ms">
-				<div class="course-one__item">
-					<div class="course-one__thumb">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/course-1-6.png" alt="eduact">
-						<a class="course-one__like" href="javascript:void(0);"><span class="icon-like"></span></a>
-					</div><!-- /.course-thumb -->
-					<div class="course-one__content">
-						<div class="course-one__time">33 Hours</div>
-						<div class="course-one__ratings">
-							<span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span
-								class="icon-star"></span><span class="icon-star"></span>
-							<div class="course-one__ratings__reviews">(25 Reviews)</div>
-						</div>
-						<h3 class="course-one__title">
-							<a href="online-business.html">Sales and Marketing For Online Businesses</a>
-						</h3>
-						<div class="course-one__bottom">
-							<div class="course-one__author">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/course/author-6.png" alt="eduact">
-								<h5 class="course-one__author__name">Guy Hawkins</h5>
-								<p class="course-one__author__designation">Chief Executive Officer</p>
-							</div>
-							<div class="course-one__meta">
-								<h4 class="course-one__meta__price">$475.22</h4>
-								<p class="course-one__meta__class">13 Lessons</p>
-							</div>
-						</div>
-					</div><!-- /.course-content -->
-				</div><!-- /.course-card-one -->
-			</div>
+			<?php
+			$catalog_query = new WP_Query([
+				'post_type' => 'product',
+				'posts_per_page' => 6,
+				'post__in' => wc_get_featured_product_ids(),
+			]);
+
+			while ($catalog_query->have_posts()) {
+				$catalog_query->the_post();
+				$catalog_query->post;
+				$post_id = get_the_ID();
+				$tax = get_the_terms($post_id, "techer");
+
+			?>
+				<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+					<div class="course-one__item">
+						<div class="course-one__content">
+							<?php
+							wc_get_template_part('content', 'product');
+							?>
+							<?php foreach ($tax as $value) { ?>
+								<div class="course-one__bottom">
+									<div class="course-one__author">
+										<img src="<?php echo get_field("foto_uchitelya", 'term_' . $value->term_id)["url"]; ?>" alt="eduact">
+
+										<h5 class="course-one__author__name"><?php echo $value->name; ?></h5>
+
+
+										<p class="course-one__author__designation"><?php echo get_field("dolzhnost", 'term_' . $value->term_id); ?></p>
+									</div>
+									<div class="course-one__meta">
+
+										<p class="course-one__meta__class"><?php echo $value->count; ?> уроков</p>
+									</div>
+								</div>
+							<?php } ?>
+						</div><!-- /.course-content -->
+					</div><!-- /.course-card-one -->
+				</div>
+			<?php }
+			wp_reset_postdata();
+
+			?>
+
+
 		</div>
 	</div>
 </section>
@@ -1063,13 +376,9 @@
 		<div class="row">
 			<div class="col-lg-6 wow fadeInLeft" data-wow-delay="200ms">
 				<div class="counter-one__left">
-					<h4 class="counter-one__left__title">Create Your Free Account</h4>
-					<div class="counter-one__left__content">
-						The generated Lorem Ipsum is therefore always free from repetition, injected humour, or
-						non-characteristic.
-					</div>
-					<a href="contact.html" class="eduact-btn eduact-btn-second"><span class="eduact-btn__curve"></span>Join
-						Now<i class="icon-arrow"></i></a>
+					<h4 class="counter-one__left__title"><?php echo get_field("blok_nad_futeromzagolovok"); ?></h4>
+					<div class="counter-one__left__content"><?php echo get_field("blok_nad_futeromtekst"); ?></div>
+
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/counter-dot.png" alt="eduact">
 				</div>
 			</div>
@@ -1098,7 +407,7 @@
 					</svg>
 				</div>
 				<div class="counter-one__area wow zoomIn" data-wow-delay="400ms">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/resources/banner-1-1.png" alt="eduact">
+					<img src="<?php echo get_field("blok_nad_futeromfotka")["url"]; ?>" alt="eduact">
 				</div>
 			</div>
 		</div>

@@ -58,10 +58,10 @@ $lang = pll_current_language();
 						} ?>
 					</p>
 					<?php if (get_field('contacts_email', 'option')) { ?>
-						<p class="mb-2"><i class="fa fa-envelope mr-3" style="color: #1ec28b;"></i><?php echo get_field('contacts_email', 'option'); ?></p>
+						<a href="mailto:<?php echo get_field('contacts_email', 'option'); ?>" class="mb-2"><?php echo get_field('contacts_email', 'option'); ?></a>
 					<?php } ?>
 					<?php if (get_field('contacts_phone', 'option')) { ?>
-						<p class="mb-2"><i class="fa fa-phone-alt mr-3" style="color: #1ec28b;"></i><?php echo get_field('contacts_phone', 'option'); ?></p>
+						<a href="tel:<?php echo get_field('contacts_phone', 'option'); ?>" class="mb-2"><?php echo get_field('contacts_phone', 'option'); ?></a>
 					<?php } ?>
 					<div class="mc-form__response"></div>
 				</div><!-- /.footer-mailchimp -->
@@ -93,21 +93,21 @@ $lang = pll_current_language();
 		<div class="mobile-nav__container"></div>
 		<!-- /.mobile-nav__container -->
 		<ul class="mobile-nav__contact list-unstyled">
-			<li>
-				<i class="fas fa-envelope"></i>
-				<a href="mailto:needhelp@company.com">needhelp@company.com</a>
-			</li>
-			<li>
-				<i class="fa fa-phone-alt"></i>
-				<a href="tel:+9236809850">+92 (3680) - 9850</a>
-			</li>
+			<?php if (get_field('contacts_email', 'option')) { ?>
+				<li>
+					<i class="fa fa-phone-alt"></i>
+					<a href="tel:<?php echo get_field('contacts_phone', 'option'); ?>"><?php echo get_field('contacts_phone', 'option'); ?></a>
+				</li>
+			<?php } ?>
+			<?php if (get_field('contacts_phone', 'option')) { ?>
+				<li>
+					<i class="fas fa-envelope"></i>
+					<a href="mailto:<?php echo get_field('contacts_email', 'option'); ?>"><?php echo get_field('contacts_email', 'option'); ?></a>
+				</li>
+			<?php } ?>
+
+
 		</ul><!-- /.mobile-nav__contact -->
-		<div class="mobile-nav__social">
-			<a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-			<a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-			<a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
-			<a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-		</div><!-- /.mobile-nav__social -->
 	</div>
 	<!-- /.mobile-nav__content -->
 </div>

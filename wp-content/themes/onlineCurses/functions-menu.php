@@ -10,7 +10,6 @@ function nav_menus()
 			'menu_main_header' => 'Меню в хедер',
 			'menu_main_footer' => 'Меню в футер',
 			'categories' => 'Категории',
-			'lang_switcher' => 'Переключатель языков',
 		)
 	);
 }
@@ -52,18 +51,6 @@ class main_nav_menu_Walker extends Walker_Nav_Menu
 	}
 }
 
-class langswitcher_Walker extends Walker_Nav_Menu
-{
-	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-	{
-		$my_lang = pll_current_language();
-		if ($my_lang == 'kk' && $item->title == 'Kz' || $my_lang == 'ru' && $item->title == 'Ru' || $my_lang == 'en' && $item->title == 'En') {
-			$output .= '<li class="lang__item active"><a class="lang__link" href="' . $item->url . '">' . $item->title . '</a>';
-		} else {
-			$output .= '<li class="lang__item"><a class="lang__link" href="' . $item->url . '">' . $item->title . '</a>';
-		}
-	}
-}
 
 class footer_menu_Walker extends Walker_Nav_Menu
 {

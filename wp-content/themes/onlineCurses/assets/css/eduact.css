@@ -6684,6 +6684,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	position: relative;
 	border-radius: 14px;
 	margin: 0 0 30px;
+	height: 100%;
 	box-shadow: 11px 15px 30px 0px rgba(128, 137, 225, 0.1);
 }
 
@@ -6719,6 +6720,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	border: 1px solid var(--eduact-soft3);
 	background-color: var(--eduact-white);
 	border-radius: 14px;
+	height: 100%;
 }
 
 .service-one__icon {
@@ -8611,7 +8613,7 @@ body.megamenu-popup-active .mobile-nav__content {
 .category-one__content {
 	position: absolute;
 	left: 0;
-	bottom: 18px;
+	top: calc(50% - 97.5px);
 	height: 195px;
 	width: 100%;
 	text-align: center;
@@ -9061,6 +9063,7 @@ body.megamenu-popup-active .mobile-nav__content {
 .course-one__item {
 	position: relative;
 	margin: 0 0 36px;
+	height: 100%;
 }
 
 .course-one__item:hover .course-one__title a {
@@ -9078,14 +9081,15 @@ body.megamenu-popup-active .mobile-nav__content {
 	position: relative;
 	z-index: 2;
 	background: linear-gradient(147deg, var(--eduact-soft4) 0%, rgba(255, 255, 255, 0) 100%);
-	margin: 0 0 0 auto;
+	margin: 0 auto;
 	padding: 10px;
 }
 
-.course-one__thumb img {
+.course-one__thumb>a>img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	border-radius: 50%;
 }
 
 .course-one__like {
@@ -9115,7 +9119,11 @@ body.megamenu-popup-active .mobile-nav__content {
 	padding: 28px 30px 30px;
 	box-shadow: 11px 15px 30px 0px rgba(128, 137, 225, 0.1);
 	transition: 500ms ease;
-	margin: -110px 0 0;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
 @media (max-width: 767px) {
@@ -9142,6 +9150,12 @@ body.megamenu-popup-active .mobile-nav__content {
 	margin: 0 0 25px;
 }
 
+.course-one__time>a {
+	color: var(--eduact-white);
+	font-size: 14px;
+	font-weight: 600;
+}
+
 .course-one__ratings {
 	display: flex;
 	align-items: center;
@@ -9161,7 +9175,7 @@ body.megamenu-popup-active .mobile-nav__content {
 .course-one__title {
 	font-size: 20px;
 	line-height: 29px;
-	margin: 0 0 22px;
+	margin: 0 0 0.2rem;
 	max-width: 300px;
 }
 
@@ -9197,6 +9211,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	align-items: center;
 	justify-content: space-between;
 	min-height: 44px;
+	width: 100%;
 	padding: 14px 19px 15px 19px;
 }
 
@@ -16733,6 +16748,12 @@ body.boxed-wrapper .hero-banner__thumb {
 	width: 25px;
 	height: 25px;
 	opacity: .4;
+}
+
+.categoriImages {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
 }
 
 /*# sourceMappingURL=eduact.css.map */
