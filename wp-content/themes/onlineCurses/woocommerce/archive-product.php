@@ -21,30 +21,21 @@ defined('ABSPATH') || exit;
 get_header('shop'); ?>
 
 
-<section class="float-left w-100 banner-con sub-banner-con position-relative main-box">
-	<img alt="vector" class="vector1  img-fluid position-absolute" src="<?php echo get_template_directory_uri(); ?>/assets/images/vector1.png">
-	<img alt="vector" class="vector2 img-fluid position-absolute" src="<?php echo get_template_directory_uri(); ?>/assets/images/vector2.png">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7">
-				<div class="sub-banner-inner-con padding-bottom">
-					<?php
-					/**
-					 * Hook: woocommerce_shop_loop_header.
-					 *
-					 * @since 8.6.0
-					 *
-					 * @hooked woocommerce_product_taxonomy_archive_header - 10
-					 */
-					do_action('woocommerce_shop_loop_header');
-					?>
-					<?php echo get_template_part("template_parts/breadcrumb-block"); ?>
-				</div>
-			</div>
-		</div>
-	</div>
-
-</section>
+<section class="page-header page-header--bg-two" data-jarallax data-speed="0.3" data-imgPosition="50% -100%">
+	<div class="page-header__bg jarallax-img" style="	background-image: url(<?php if (!empty(get_field("zadnij_fon", "option"))) {
+																																							echo get_field("zadnij_fon", "option")["url"];
+																																						} else {
+																																							echo (get_template_directory_uri() . "/<?php echo get_template_directory_uri(); ?>/assets/images/backgrounds/page-header-bg-1-1.jpg)");
+																																						} ?>
+																																						"></div><!-- /.page-header-bg -->
+	<div class="page-header__overlay"></div><!-- /.page-header-overlay -->
+	<div class="container text-center">
+		<h2 class="page-header__title"><?php the_title(); ?></h2><!-- /.page-title -->
+		<ul class="page-header__breadcrumb list-unstyled">
+			<?php bcn_display(); ?>
+		</ul><!-- /.page-breadcrumb list-unstyled -->
+	</div><!-- /.container -->
+</section><!-- /.page-header -->
 </div>
 
 
@@ -91,11 +82,15 @@ get_header('shop'); ?>
 						 */
 						do_action('woocommerce_shop_loop');
 				?>
-						<div class="col-lg-4 mb-3">
-							<?php
+						<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+							<div class="course-one__item">
+								<div class="course-one__content">
+									<?php
 
-							wc_get_template_part('content', 'product');
-							?>
+									wc_get_template_part('content', 'product');
+									?>
+								</div><!-- /.course-content -->
+							</div><!-- /.course-card-one -->
 						</div>
 				<?php
 					}
