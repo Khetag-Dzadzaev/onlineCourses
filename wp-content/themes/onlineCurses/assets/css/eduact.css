@@ -4024,6 +4024,10 @@ h6 {
 	padding: 0;
 }
 
+.main-menu {
+	background-color: var(--eduact-base);
+}
+
 .main-menu__logo {
 	display: flex;
 	align-items: center;
@@ -9432,6 +9436,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	border-radius: 14px;
 	overflow: hidden;
 	box-shadow: 0px 0px 60px 0px rgba(2, 2, 2, 0.07);
+	display: block;
 	margin: 0 0 36px;
 }
 
@@ -9459,6 +9464,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	-webkit-mask-size: cover;
 	mask-size: cover;
 	width: 100%;
+	max-height: 276px;
 }
 
 .course-two__thumb svg {
@@ -9498,7 +9504,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	padding: 42px 30px 30px;
 }
 
-.course-two__time {
+.course-two__time>a {
 	height: 24px;
 	background-color: var(--eduact-black);
 	color: var(--eduact-white);
@@ -12210,6 +12216,8 @@ body.megamenu-popup-active .mobile-nav__content {
 
 .main-footer__newsletter {
 	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 
 @media (max-width: 767px) {
@@ -13513,7 +13521,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
-	background-image: url(../images/backgrounds/page-header-bg-1-1.jpg);
+
 }
 
 .page-header--bg-two .page-header__bg {

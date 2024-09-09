@@ -22,117 +22,43 @@ global $product;
 
 // Ensure visibility.
 if (empty($product) || !$product->is_visible()) {
-    return;
+	return;
 }
 ?>
 
-<div <?php wc_product_class('package-box', $product); ?>>
-    <span class="d-block location-span"> <i class="fa-solid fa-location-dot"></i> <?php echo $product->get_categories(); ?></span>
-    <?php
-    /**
-     * Hook: woocommerce_shop_loop_item_title.
-     *
-     * @hooked woocommerce_template_loop_product_title - 10
-     */
-    do_action('woocommerce_shop_loop_item_title');
-    ?>
-    <a href="<?php the_permalink(); ?>">
-        <?php
-        /**
-         * Hook: woocommerce_before_shop_loop_item_title.
-         *
-         * @hooked woocommerce_show_product_loop_sale_flash - 10
-         * @hooked woocommerce_template_loop_product_thumbnail - 10
-         */
-        do_action('woocommerce_before_shop_loop_item_title');
-        ?>
-    </a>
-    <div class="pkg-btn-con d-flex align-items-center justify-content-between">
-        <?php
-        /**
-         * Hook: woocommerce_after_shop_loop_item_title.
-         *
-         * @hooked woocommerce_template_loop_rating - 5
-         * @hooked woocommerce_template_loop_price - 10
-         */
-        do_action('woocommerce_after_shop_loop_item_title');
-        ?>
-        <div class="grey-btn d-inline-block">
-            <a href="<?php the_permalink(); ?>" class="d-inline-block"><?php echo esc_attr(pll__('View Detail')); ?></a>
-        </div>
 
-        <!-- package btn con -->
-    </div>
-
-    <div class="product-card__buttons">
-        <form method="POST">
-            <input value="<?= get_the_ID(); ?>" name="extend-id" type="hidden" />
-
-            <button class="product-card-button product-card-button_green">
-                <?php echo esc_attr(pll__('Product extend')); ?>
-            </button>
-        </form>
-
-        <form method="POST">
-            <input value="<?= get_the_ID(); ?>" name="delete-id" type="hidden" />
-
-            <? if (get_field('total_sales') <= 0): ?>
-                <button class="product-card-button product-card-button_red">
-                    <?php echo esc_attr(pll__('Product delete')); ?>
-                </button>
-            <? endif; ?>
-        </form>
-    </div>
-
-    <!-- package box -->
-</div>
-
-<!-- 
-<div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-	<div <?php wc_product_class('card product-item border-0 mb-4', $product); ?>>
-		<a href="<?php the_permalink(); ?>" class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-			<?php
-            /**
-             * Hook: woocommerce_before_shop_loop_item_title.
-             *
-             * @hooked woocommerce_show_product_loop_sale_flash - 10
-             * @hooked woocommerce_template_loop_product_thumbnail - 10
-             */
-            do_action('woocommerce_before_shop_loop_item_title');
-            ?>
-		</a>
-		<div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-			<?php
-            /**
-             * Hook: woocommerce_shop_loop_item_title.
-             *
-             * @hooked woocommerce_template_loop_product_title - 10
-             */
-            do_action('woocommerce_shop_loop_item_title');
-            ?>
-
-			<?php
-            /**
-             * Hook: woocommerce_after_shop_loop_item_title.
-             *
-             * @hooked woocommerce_template_loop_rating - 5
-             * @hooked woocommerce_template_loop_price - 10
-             */
-            do_action('woocommerce_after_shop_loop_item_title');
-            ?>
-
-		</div>
-		<div class="card-footer d-flex justify-content-between bg-light border">
-			<a href="<?php the_permalink(); ?>" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i><?php echo esc_attr(pll__('View Detail')); ?></a>
-			<?php
-            /**
-             * Hook: woocommerce_after_shop_loop_item.
-             *
-             * @hooked woocommerce_template_loop_product_link_close - 5
-             * @hooked woocommerce_template_loop_add_to_cart - 10
-             */
-            do_action('woocommerce_after_shop_loop_item');
-            ?>
-		</div>
-	</div>
-</div> -->
+<a href="<?php the_permalink(); ?>" class="course-two__thumb">
+	<?php
+	/**
+	 * Hook: woocommerce_before_shop_loop_item_title.
+	 *
+	 * @hooked woocommerce_show_product_loop_sale_flash - 10
+	 * @hooked woocommerce_template_loop_product_thumbnail - 10
+	 */
+	do_action('woocommerce_before_shop_loop_item_title');
+	?>
+	<svg xmlns=" http://www.w3.org/2000/svg" viewBox="0 0 353 177">
+		<path
+			d="M37 0C16.5655 0 0 16.5655 0 37V93.4816C0 103.547 4.00259 113.295 11.7361 119.737C54.2735 155.171 112.403 177 176.496 177C240.589 177 298.718 155.171 341.261 119.737C348.996 113.295 353 103.546 353 93.4795V37C353 16.5655 336.435 0 316 0H37Z" />
+	</svg>
+</a>
+<div class="course-two__content">
+	<div class="course-two__time"><?php echo $product->get_categories(); ?></div>
+	<h4 class="course-two__meta__price"> <?php
+																				/**
+																				 * Hook: woocommerce_after_shop_loop_item_title.
+																				 *
+																				 * @hooked woocommerce_template_loop_rating - 5
+																				 * @hooked woocommerce_template_loop_price - 10
+																				 */
+																				do_action('woocommerce_after_shop_loop_item_title');
+																				?></h4>
+	<h3 class="course-two__title"><?php
+																/**
+																 * Hook: woocommerce_shop_loop_item_title.
+																 *
+																 * @hooked woocommerce_template_loop_product_title - 10
+																 */
+																do_action('woocommerce_shop_loop_item_title');
+																?>
+	</h3>

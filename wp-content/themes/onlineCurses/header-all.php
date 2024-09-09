@@ -26,7 +26,7 @@
 	<!-- /.preloader -->
 	<div class="page-wrapper">
 		<header class="main-header">
-			<nav class="main-menu ">
+			<nav class="main-menu main-menu_bg">
 				<div class="container">
 					<div class="main-menu__logo">
 						<a href="/">

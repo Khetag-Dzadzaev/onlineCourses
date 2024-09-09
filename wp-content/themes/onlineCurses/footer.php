@@ -57,11 +57,11 @@ $lang = pll_current_language();
 							echo get_field('contacts_address_kz', 'option');
 						} ?>
 					</p>
-					<?php if (get_field('contacts_email', 'option')) { ?>
-						<a href="mailto:<?php echo get_field('contacts_email', 'option'); ?>" class="mb-2"><?php echo get_field('contacts_email', 'option'); ?></a>
+					<?php if (!empty(get_field('contacts_email', 'option'))) { ?>
+						<a href="mailto:<?php echo get_field('contacts_email', 'option'); ?>" class="mb-2">Mail: <?php echo get_field('contacts_email', 'option'); ?></a>
 					<?php } ?>
-					<?php if (get_field('contacts_phone', 'option')) { ?>
-						<a href="tel:<?php echo get_field('contacts_phone', 'option'); ?>" class="mb-2"><?php echo get_field('contacts_phone', 'option'); ?></a>
+					<?php if (!empty(get_field('contacts_phone', 'option'))) { ?>
+						<a href="tel:<?php echo get_field('contacts_phone', 'option'); ?>" class="mb-2">Tel: <?php echo get_field('contacts_phone', 'option'); ?></a>
 					<?php } ?>
 					<div class="mc-form__response"></div>
 				</div><!-- /.footer-mailchimp -->

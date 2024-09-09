@@ -1,4 +1,4 @@
-<?php get_header(); /* Template Name: Контакты*/ ?>
+<?php get_header();/* Template Name: Контакты*/  ?>
 
 
 <section class="float-left w-100 banner-con sub-banner-con position-relative main-box">
