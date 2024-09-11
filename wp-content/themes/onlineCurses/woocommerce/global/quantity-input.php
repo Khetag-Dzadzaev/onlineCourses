@@ -35,17 +35,15 @@ $label = !empty($args['product_name']) ? sprintf(esc_html__('%s quantity', 'wooc
 	 */
 	do_action('woocommerce_before_quantity_input_field');
 	?>
-	<label class="screen-reader-text" for="<?php echo esc_attr($input_id); ?>"><?php echo esc_attr($label); ?></label>
-	<div class="input-group-btn">
-		<div class="btn btn-primary btn-minus<?php if (is_cart()) echo ' btn-sm'; ?>">
-			<i class="fa fa-minus"></i>
-		</div>
-	</div>
+	<div class="product-details__quantity">
+		<div class="quantity-box">
+			<button type="button" class="sub"><i class="fa fa-minus"></i></button>
 
-	<input type="<?php echo esc_attr($type); ?>" <?php echo $readonly ? 'readonly="readonly"' : ''; ?> id="<?php echo esc_attr($input_id); ?>" class="form-control text-center <?php echo esc_attr(join(' ', (array) $classes)); ?> <?php if (is_cart()) echo ' form-control-sm'; ?>" name="<?php echo esc_attr($input_name); ?>" value="<?php echo esc_attr($input_value); ?>" aria-label="<?php esc_attr_e('Product quantity', 'woocommerce'); ?>" size="4" min="<?php echo esc_attr($min_value); ?>" max="<?php echo esc_attr(0 < $max_value ? $max_value : ''); ?>" <?php if (!$readonly) : ?> step="<?php echo esc_attr($step); ?>" placeholder="<?php echo esc_attr($placeholder); ?>" inputmode="<?php echo esc_attr($inputmode); ?>" autocomplete="<?php echo esc_attr(isset($autocomplete) ? $autocomplete : 'on'); ?>" <?php endif; ?> />
-	<div class="input-group-btn">
-		<div class="btn btn-primary btn-plus <?php if (is_cart()) echo ' btn-sm'; ?>">
-			<i class="fa fa-plus"></i>
+			<input type="<?php echo esc_attr($type); ?>" <?php echo $readonly ? 'readonly="readonly"' : ''; ?> id="<?php echo esc_attr($input_id); ?>" class="form-control text-center <?php echo esc_attr(join(' ', (array) $classes)); ?> <?php if (is_cart()) echo ' form-control-sm'; ?>" name="<?php echo esc_attr($input_name); ?>" value="<?php echo esc_attr($input_value); ?>" aria-label="<?php esc_attr_e('Product quantity', 'woocommerce'); ?>" size="4" min="<?php echo esc_attr($min_value); ?>" max="<?php echo esc_attr(0 < $max_value ? $max_value : ''); ?>" <?php if (!$readonly) : ?> step="<?php echo esc_attr($step); ?>" placeholder="<?php echo esc_attr($placeholder); ?>" inputmode="<?php echo esc_attr($inputmode); ?>" autocomplete="<?php echo esc_attr(isset($autocomplete) ? $autocomplete : 'on'); ?>" <?php endif; ?> />
+
+			<button type="button" class="add">
+				<i class=" fa fa-plus"></i>
+			</button>
 		</div>
 	</div>
 	<?php

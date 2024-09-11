@@ -21,42 +21,58 @@ if (!defined('ABSPATH')) {
 }
 
 get_header('shop'); ?>
+<section class="page-header page-header--bg-two" data-jarallax data-speed="0.3" data-imgPosition="50% -100%">
+	<div class="page-header__bg jarallax-img" style="	background-image: url(<?php if (!empty(get_field("zadnij_fon", "option"))) {
+																																							echo get_field("zadnij_fon", "option")["url"];
+																																						} else {
+																																							echo (get_template_directory_uri() . "/<?php echo get_template_directory_uri(); ?>/assets/images/backgrounds/page-header-bg-1-1.jpg)");
+																																						} ?>
+																																						"></div><!-- /.page-header-bg -->
+	<div class="page-header__overlay"></div><!-- /.page-header-overlay -->
+	<div class="container text-center">
+		<h2 class="page-header__title"><?php the_title(); ?></h2><!-- /.page-title -->
+		<ul class="page-header__breadcrumb list-unstyled">
+			<?php bcn_display(); ?>
+		</ul><!-- /.page-breadcrumb list-unstyled -->
+	</div><!-- /.container -->
+</section><!-- /.page-header -->
 
-	<?php
-	/**
-	 * woocommerce_before_main_content hook.
-	 *
-	 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-	 * @hooked woocommerce_breadcrumb - 20
-	 */
-	do_action('woocommerce_before_main_content');
-	?>
 
-		<?php while (have_posts()) : ?>
-			<?php the_post(); ?>
+<?php
+/**
+ * woocommerce_before_main_content hook.
+ *
+ * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+ * @hooked woocommerce_breadcrumb - 20
+ */
+do_action('woocommerce_before_main_content');
+?>
 
-			<?php wc_get_template_part('content', 'single-product'); ?>
+<?php while (have_posts()) : ?>
+	<?php the_post(); ?>
 
-		<?php endwhile; // end of the loop. 
-		?>
+	<?php wc_get_template_part('content', 'single-product'); ?>
 
-	<?php
-	/**
-	 * woocommerce_after_main_content hook.
-	 *
-	 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-	 */
-	do_action('woocommerce_after_main_content');
-	?>
+<?php endwhile; // end of the loop. 
+?>
 
-	<?php
-	/**
-	 * woocommerce_sidebar hook.
-	 *
-	 * @hooked woocommerce_get_sidebar - 10
-	 */
-	do_action('woocommerce_sidebar');
-	?>
+<?php
+/**
+ * woocommerce_after_main_content hook.
+ *
+ * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+ */
+do_action('woocommerce_after_main_content');
+?>
+
+<?php
+/**
+ * woocommerce_sidebar hook.
+ *
+ * @hooked woocommerce_get_sidebar - 10
+ */
+do_action('woocommerce_sidebar');
+?>
 
 <?php
 get_footer('shop');

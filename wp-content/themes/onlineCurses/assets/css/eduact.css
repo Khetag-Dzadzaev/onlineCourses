@@ -15668,7 +15668,6 @@ body.megamenu-popup-active .mobile-nav__content {
 	line-height: 26px;
 	color: var(--eduact-secondary);
 	font-weight: 700;
-	margin: 0 0 0 81px;
 }
 
 @media (max-width: 767px) {
@@ -16100,7 +16099,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	position: relative;
 	display: block;
 	width: 100%;
-	overflow-x: auto;
+	overflow: visible;
 	-webkit-overflow-scrolling: touch;
 }
 

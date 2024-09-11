@@ -23,4 +23,5 @@ if (!defined('ABSPATH')) {
 global $product;
 
 ?>
-<h3 class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price font-weight-semi-bold mb-4')); ?>"><?php echo $product->get_price_html(); ?></h3>
+<div class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'product-details__price')); ?>"><?php echo $product->get_price_html(); ?>
+</div>

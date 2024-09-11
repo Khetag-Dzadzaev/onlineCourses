@@ -22,23 +22,6 @@ global $product;
 
 ?>
 
-<section class="float-left w-100 banner-con sub-banner-con position-relative main-box">
-	<img alt="vector" class="vector1  img-fluid position-absolute" src="<?php echo get_template_directory_uri(); ?>/assets/images/vector1.png">
-	<img alt="vector" class="vector2 img-fluid position-absolute" src="<?php echo get_template_directory_uri(); ?>/assets/images/vector2.png">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="sub-banner-inner-con padding-bottom">
-
-					<?php echo get_template_part("template_parts/breadcrumb-block"); ?>
-				</div>
-			</div>
-		</div>
-	</div>
-
-</section>
-</div>
-
 <div class="blog-tabs-section w-100 float-left padding-top padding-bottom background-gradient">
 	<div class="container">
 		<?php
@@ -49,36 +32,46 @@ global $product;
 		 */
 		do_action('woocommerce_before_single_product');
 		?>
-
-
-		<!-- Shop Detail Start -->
-		<div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
-			<div class="row">
-				<div class="col-lg-7 col-md-12 col-sm-12 col-12 order-1 order-lg-0">
-					<div class="product-main-box">
-						<div id="product-carousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner border">
-								<?php
-								/**
-								 * Hook: woocommerce_before_single_product_summary.
-								 *
-								 * @hooked woocommerce_show_product_sale_flash - 10
-								 * @hooked woocommerce_show_product_images - 20
-								 */
-								do_action('woocommerce_before_single_product_summary');
-								?>
-
+		<!-- Products Start -->
+		<section class="product-details">
+			<div class="container">
+				<!-- /.product-details -->
+				<div class="row">
+					<div class="col-lg-6 col-xl-7 wow fadeInLeft" data-wow-delay="200ms">
+						<div class="product-details__img">
+							<?php
+							/**
+							 * Hook: woocommerce_before_single_product_summary.
+							 *
+							 * @hooked woocommerce_show_product_sale_flash - 10
+							 * @hooked woocommerce_show_product_images - 20
+							 */
+							do_action('woocommerce_before_single_product_summary');
+							?>
+						</div><!-- /.product-image -->
+					</div><!-- /.column -->
+					<div class="col-lg-6 col-xl-5 wow fadeInRight" data-wow-delay="300ms">
+						<div class="product-details__content">
+							<div class="product-details__top">
+								<h3 class="product-details__title">
+									<h2 class="product-title"><?php the_title(); ?></h2>
+								</h3><!-- /.product-title -->
 							</div>
-							<?php if (!empty($product->get_gallery_image_ids())) { ?>
-								<a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-									<i class="fa fa-2x fa-angle-left text-dark"></i>
-								</a>
-								<a class="carousel-control-next" href="#product-carousel" data-slide="next">
-									<i class="fa fa-2x fa-angle-right text-dark"></i>
-								</a>
-							<?php } ?>
+							<div class="product-details__excerpt">
+								<p class="product-details__excerpt-text1">
+									Nam vel lacus eu nisl bibendum accumsan vitae vitae nibh. Nam nec eros id magna hendrerit sagittis.
+									Nullam sed mi non odio feugiat volutpat sit amet nec elit. Maecenas id hendrerit ipsum.
+								</p>
+							</div><!-- /.excerp-text -->
+							<?php do_action('woocommerce_single_product_summary_right'); ?>
 						</div>
-
+					</div>
+				</div>
+				<!-- /.product-details -->
+				<!-- /.product-description -->
+				<div class="product-details__description wow fadeInUp" data-wow-delay="300ms">
+					<h3 class="product-details__description__title">Description</h3>
+					<div class="product-details__description__text">
 						<?php
 						/**
 						 * Hook: woocommerce_single_product_summary.
@@ -95,22 +88,17 @@ global $product;
 						do_action('woocommerce_single_product_summary');
 						?>
 					</div>
-				</div>
 
-				<div class="col-lg-5 col-md-12 col-sm-12 col-12 column order-0 order-lg-1">
-					<div class="product-main-box mb-5">
-						<h2 class="product-title"><?php the_title(); ?></h2>
-					</div>
-
-					<div class="product-main-box">
-						<?php do_action('woocommerce_single_product_summary_right'); ?>
-					</div>
 				</div>
+				<!-- /.product-description -->
+				<!-- /.product-comment -->
+				<!-- Course Start -->
+
 			</div>
+		</section>
+		<!-- Products End -->
 
-		</div>
 
-		<!-- Shop Detail End -->
 
 
 		<?php

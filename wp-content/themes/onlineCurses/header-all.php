@@ -50,10 +50,11 @@
 						<a href="#" class="main-menu__toggler mobile-nav__toggler">
 							<i class="fa fa-bars"></i>
 						</a><!-- /.mobile menu btn -->
-						<a href="#" class="main-menu__search search-toggler">
-							<i class="icon-Search"></i>
+						<a href="<?php echo get_permalink(pll_get_post(11)); ?>" class="main-menu__search ">
+							<i class="icon-portfolio"></i>
 						</a><!-- /.search btn -->
-						<a href="login.html" class="main-menu__login">
+						<a <?= is_user_logged_in() === false ? 'data-auth-modal-trigger' : ''; ?> href="<?php echo get_permalink(pll_get_post(13)); ?>" class=" main-menu__login">
+							<?= is_user_logged_in() ? esc_attr(pll__('Leave personal account')) : esc_attr(pll__('Enter personal account')); ?>
 							<i class="icon-account-1"></i>
 						</a><!-- /.login btn -->
 					</div><!-- /.main-menu__right -->
