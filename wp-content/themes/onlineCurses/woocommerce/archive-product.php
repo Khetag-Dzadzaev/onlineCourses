@@ -27,7 +27,7 @@ get_header('shop'); ?>
 																																						} else {
 																																							echo (get_template_directory_uri() . "/<?php echo get_template_directory_uri(); ?>/assets/images/backgrounds/page-header-bg-1-1.jpg)");
 																																						} ?>
-																																						"></div><!-- /.page-header-bg -->
+																																						);"></div><!-- /.page-header-bg -->
 	<div class="page-header__overlay"></div><!-- /.page-header-overlay -->
 	<div class="container text-center">
 		<h2 class="page-header__title"><?php the_title(); ?></h2><!-- /.page-title -->
