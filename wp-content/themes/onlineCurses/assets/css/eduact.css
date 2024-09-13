@@ -14600,6 +14600,7 @@ body.megamenu-popup-active .mobile-nav__content {
 }
 
 .login-page__form-input-box input[type="email"],
+.login-page__form-input-box input[type="text"],
 .login-page__form-input-box input[type="password"] {
 	height: 60px;
 	width: 100%;
@@ -15637,7 +15638,9 @@ body.megamenu-popup-active .mobile-nav__content {
 
 .product-details__img img {
 	width: 100%;
-	height: auto;
+	height: 100%;
+	object-fit: cover;
+	max-height: 450px;
 }
 
 .product-details__content {
@@ -15649,6 +15652,17 @@ body.megamenu-popup-active .mobile-nav__content {
 	.product-details__content {
 		margin: 50px 0 0;
 	}
+
+}
+
+@media (max-width: 768px) {
+	.product-details__img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		max-height: 250px;
+	}
+
 }
 
 .product-details__top {

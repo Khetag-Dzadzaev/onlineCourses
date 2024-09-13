@@ -18,29 +18,36 @@
 
 defined('ABSPATH') || exit;
 ?>
+<section class="">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-3 col-lg-4 wow fadeInLeft" data-wow-delay="200ms">
+				<div class="product__sidebar product__sidebar--left">
+					<div class="product__sidebar__single product__categories">
 
-<div class="row">
-	<div class="col-12 col-lg-9">
-		<div class="woocommerce-MyAccount-content">
-			<?php
-			/**
-			 * My Account content.
-			 *
-			 * @since 2.6.0
-			 */
-			do_action('woocommerce_account_content');
-			?>
+						<ul class="list-unstyled">
+							<?
+							/**
+							 * My Account navigation.
+							 *
+							 * @since 2.6.0
+							 */
+							do_action('woocommerce_account_navigation');
+							?>
+						</ul>
+					</div><!-- /.category-widget -->
+				</div><!-- /.shop-sidebar -->
+			</div><!-- /.column -->
+			<div class="col-xl-9 col-lg-8">
+				<?php
+				/**
+				 * My Account content.
+				 *
+				 * @since 2.6.0
+				 */
+				do_action('woocommerce_account_content');
+				?>
+			</div>
 		</div>
 	</div>
-
-	<div class="col-12 col-lg-3">
-		<?
-		/**
-		 * My Account navigation.
-		 *
-		 * @since 2.6.0
-		 */
-		do_action('woocommerce_account_navigation');
-		?>
-	</div>
-</div>
+</section>

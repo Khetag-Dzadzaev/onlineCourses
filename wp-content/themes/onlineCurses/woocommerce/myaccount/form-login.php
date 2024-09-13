@@ -97,25 +97,24 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 		<div class="login-page__area">
 			<div class="row">
-				<div class="col-lg-6 wow fadeInUp animated" data-wow-delay="300ms">
-					<div class="login-page__wrap">
-						<h3 class="login-page__wrap__title">Login</h3>
-						<form class="login-page__form">
+				<div data-auth-modal class="col-lg-6 wow fadeInUp animated" data-wow-delay="300ms">
+					<div data-auth-modal-backdrop class="login-page__wrap">
+						<h3 class="login-page__wrap__title"><?php esc_html_e('Login', 'woocommerce'); ?></h3>
+						<form class="login-page__form auth-modal">
+							<div class="auth-modal__response"></div>
 							<div class="login-page__form-input-box">
-								<input type="email" placeholder="Username of email *">
+								<input name="login" type="text" placeholder="Username of email *">
 							</div>
 							<div class="login-page__form-input-box">
-								<input type="password" placeholder="Password *">
+								<input name="password" type="password" placeholder="Password *">
 							</div>
 							<div class="login-page__checked-box">
-								<input type="checkbox" name="save-data" id="save-data">
-								<label for="save-data"><span></span>Remember Me?</label>
 								<div class="login-page__forgot-password">
-									<a href="login.html">Forgot Passowrd?</a>
+									<a href="/moj-akkaunt/lost-password/"><?php esc_html_e('Lost your password?', 'woocommerce'); ?></a>
 								</div>
 							</div>
 							<div class="login-page__form-btn-box">
-								<button type="submit" class="eduact-btn eduact-btn-second"><span class="eduact-btn__curve"></span>Login</button>
+								<button type="submit" class="eduact-btn eduact-btn-second custom-button"><span class="eduact-btn__curve"></span> <?php esc_html_e('Log in', 'woocommerce'); ?></button>
 							</div>
 						</form>
 					</div><!-- login-form -->
@@ -123,19 +122,26 @@ do_action('woocommerce_before_customer_login_form'); ?>
 				<div class="col-lg-6 wow fadeInUp animated" data-wow-delay="400ms">
 					<div class="login-page__wrap login-page__wrap--right">
 						<h3 class="login-page__wrap__title">Register</h3>
-						<form class="login-page__form">
+						<form method="post" <?php do_action('woocommerce_register_form_tag'); ?> id="registration-form" class="registration-form login-page__form">
 							<div class="login-page__form-input-box">
-								<input type="email" placeholder="Email address">
+								<input type="email" placeholder="Email address" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>">
 							</div>
 							<div class="login-page__form-input-box">
-								<input type="password" placeholder="Password">
+								<input type="text" placeholder="First name" name="billing_first_name" id="reg_billing_first_name" autocomplete="billing_first_name" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>">
 							</div>
-							<div class="login-page__checked-box">
-								<input type="checkbox" name="accept-policy" id="accept-policy">
-								<label for="accept-policy"><span></span>I Accept Company Privacy Policy</label>
+							<div class="login-page__form-input-box">
+								<input type="text" placeholder="Last name" name="billing_last_name" id="reg_billing_last_name" autocomplete="billing_last_name" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>">
 							</div>
+
+							<div class="login-page__form-input-box">
+								<input type="password" placeholder="Password"
+									name="password" id="reg_password" autocomplete="new-password">
+							</div>
+							<?php do_action('woocommerce_register_form'); ?>
 							<div class="login-page__form-btn-box">
-								<button type="submit" class="eduact-btn eduact-btn-second"><span class="eduact-btn__curve"></span>Register</button>
+								<?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
+								<button type="submit" class="eduact-btn eduact-btn-second" name="register" value="<?php esc_attr_e('Register', 'woocommerce'); ?>"><span class="eduact-btn__curve"></span>
+									<?php esc_html_e('Register', 'woocommerce'); ?></button>
 							</div>
 						</form>
 					</div><!-- register-form -->
@@ -145,6 +151,68 @@ do_action('woocommerce_before_customer_login_form'); ?>
 	</div>
 </section>
 <!-- Login End -->
+<script>
+	// Auth form
+	(() => {
+		/** @type {HTMLFormElement} */
+		const form = document.querySelector(".auth-modal");
 
+		if (!form) {
+			return;
+		}
+
+		const responseNode = form.querySelector(".auth-modal__response");
+
+		function createAlertNode() {
+			const div = document.createElement("div");
+
+			div.classList.add("alert");
+			div.classList.add("alert-danger");
+
+			return div;
+		}
+
+		let isPending = false;
+
+		form.addEventListener("submit", async (e) => {
+			e.preventDefault();
+
+			if (isPending) {
+				return;
+			}
+
+			isPending = true;
+
+			responseNode.innerHTML = "";
+
+			const formData = new FormData(form);
+
+			formData.append("action", "signin");
+
+			try {
+				const response = await fetch("/wp-admin/admin-ajax.php", {
+					method: "POST",
+					body: formData,
+				});
+
+				const data = await response.json();
+
+				if (!response.ok) {
+					const alertNode = createAlertNode();
+
+					alertNode.textContent = data.message ?? "";
+
+					responseNode.append(alertNode);
+
+					return;
+				}
+
+				window.location.reload();
+			} catch (_) {} finally {
+				isPending = false;
+			}
+		});
+	})();
+</script>
 
 <?php do_action('woocommerce_after_customer_login_form'); ?>

@@ -58,10 +58,15 @@ global $product;
 								</h3><!-- /.product-title -->
 							</div>
 							<div class="product-details__excerpt">
-								<p class="product-details__excerpt-text1">
-									Nam vel lacus eu nisl bibendum accumsan vitae vitae nibh. Nam nec eros id magna hendrerit sagittis.
-									Nullam sed mi non odio feugiat volutpat sit amet nec elit. Maecenas id hendrerit ipsum.
-								</p>
+								<?php $short_description = apply_filters('woocommerce_short_description', $post->post_excerpt);
+
+								if ($short_description) { ?>
+									<p class="product-details__excerpt-text1">
+										<?php echo
+										$short_description;  ?>
+									</p>
+								<?php } ?>
+
 							</div><!-- /.excerp-text -->
 							<?php do_action('woocommerce_single_product_summary_right'); ?>
 						</div>
