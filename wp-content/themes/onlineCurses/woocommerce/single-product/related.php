@@ -52,7 +52,7 @@ if ($related_products) : ?>
 			<div class="tab-content">
 				<?php woocommerce_product_loop_start(); ?>
 				<?php foreach ($related_products as $related_product) : ?>
-					<div class="col-lg-4">
+					<div class="col-lg-4 boxPadding">
 						<?php
 						$post_object = get_post($related_product->get_id());
 

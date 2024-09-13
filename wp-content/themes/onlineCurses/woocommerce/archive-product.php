@@ -82,7 +82,7 @@ get_header('shop'); ?>
 						 */
 						do_action('woocommerce_shop_loop');
 				?>
-						<div class="col-xl-4 col-lg-6 wow fadeInUp" data-wow-delay="100ms">
+						<div class="col-xl-4 col-lg-6 boxPadding wow fadeInUp" data-wow-delay="100ms">
 							<div class="course-one__item">
 								<div class="course-one__content">
 									<?php

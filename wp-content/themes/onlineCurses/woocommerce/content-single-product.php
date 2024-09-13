@@ -50,7 +50,7 @@ global $product;
 							?>
 						</div><!-- /.product-image -->
 					</div><!-- /.column -->
-					<div class="col-lg-6 col-xl-5 wow fadeInRight" data-wow-delay="300ms">
+					<div class="col-lg-6 col-xl-5 boxPadding wow fadeInRight" data-wow-delay="300ms">
 						<div class="product-details__content">
 							<div class="product-details__top">
 								<h3 class="product-details__title">

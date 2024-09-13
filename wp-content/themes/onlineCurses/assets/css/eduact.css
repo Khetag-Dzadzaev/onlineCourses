@@ -4300,7 +4300,16 @@ h6 {
 	margin-right: 18px;
 }
 
-.main-menu__login,
+.main-menu__login {
+	position: relative;
+	font-size: 16px;
+	color: var(--eduact-white);
+	display: flex;
+	align-items: center;
+	height: 50px;
+	transition: all 500ms ease;
+}
+
 .main-menu__search {
 	position: relative;
 	font-size: 20px;
@@ -4343,7 +4352,7 @@ h6 {
 }
 
 .main-menu__login {
-	font-size: 24px;
+	font-size: 18px;
 	margin-left: 11px;
 }
 
@@ -6718,13 +6727,18 @@ body.megamenu-popup-active .mobile-nav__content {
 
 .service-one__wrapper {
 	overflow: hidden;
-	padding: 39px 29px 33px;
+	padding: 30px;
+	width: 100%;
 	position: relative;
 	z-index: 2;
 	border: 1px solid var(--eduact-soft3);
 	background-color: var(--eduact-white);
 	border-radius: 14px;
 	height: 100%;
+}
+
+.boxPadding {
+	padding: calc(var(--bs-gutter-x)/ 2);
 }
 
 .service-one__icon {
@@ -6736,7 +6750,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	position: relative;
 	z-index: 3;
 	color: var(--eduact-white);
-	margin: 0 0 27px;
+	margin: 0 0 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -6754,7 +6768,7 @@ body.megamenu-popup-active .mobile-nav__content {
 
 .service-one__title {
 	font-size: 18px;
-	margin: 0 0 17px;
+	margin: 0 0 12px;
 }
 
 .service-one__title a {
@@ -6767,7 +6781,6 @@ body.megamenu-popup-active .mobile-nav__content {
 
 .service-one__text {
 	font-size: 14px;
-	margin: 0 0 15px;
 }
 
 .service-one__rm {
@@ -9066,7 +9079,6 @@ body.megamenu-popup-active .mobile-nav__content {
 
 .course-one__item {
 	position: relative;
-	margin: 0 0 36px;
 	height: 100%;
 }
 
@@ -9130,17 +9142,7 @@ body.megamenu-popup-active .mobile-nav__content {
 	align-items: flex-start;
 }
 
-@media (max-width: 767px) {
-	.course-one__content {
-		margin-top: -80px;
-	}
-}
 
-@media (min-width: 1200px) and (max-width: 1399px) {
-	.course-one__content {
-		margin-top: -80px;
-	}
-}
 
 .course-one__time {
 	height: 24px;
@@ -13540,8 +13542,8 @@ body.megamenu-popup-active .mobile-nav__content {
 .page-header .container {
 	position: relative;
 	z-index: 2;
-	padding-top: 166px;
-	padding-bottom: 151px;
+	padding-top: 186px;
+	padding-bottom: 111px;
 }
 
 @media (max-width: 767px) {
